@@ -166,7 +166,7 @@ function esPrimo(num) {
    // Tu código:
    if(num < 2)
    return false;
-   if(num === 3)
+   if(num === 3 || num === 2)
    return true;
    for(i=5 ; i * i <= num ; i+=6) //El limite es la raíz cuadrada del numero
    {
