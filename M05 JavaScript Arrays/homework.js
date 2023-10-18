@@ -39,7 +39,7 @@ function agregarItemAlComienzoDelArray(array, elemento) {
    // Agrega el "elemento" al comienzo del arreglo recibido.
    // Retorna el arreglo.
    // Tu código:
-   array.shift(elemento);
+   array.unshift(elemento);
    return array;
 }
 
@@ -60,7 +60,7 @@ function arrayContiene(array, elemento) {
    for(let i=0; i<array.length; i++)
       if(elemento === array[i])
          return true;
-      else return false;
+   return false;
 }
 
 function agregarNumeros(arrayOfNums) {
@@ -99,15 +99,20 @@ function multiplicarArgumentos() {
    // Si no se pasan argumentos retorna 0. Si se pasa un argumento, simplemente retórnalo.
    // [PISTA]: "arguments" es un arreglo.
    // Tu código:
-   if(arguments === undefined)
+   if(arguments.length === 0)
       return 0
-   if(arguments.length === 1)
-      return arguments
-   let resultado = 1;
-   if(arguments.length >2)
-   for(let i=0 ; i<arguments.length ; i++ )
+   else if(arguments.length === 1)
+   {     
+      let resultado = arguments[0]
+      return resultado;
+   }
+   else
+   {
+      let resultado = 1;
+      for(let i=0 ; i<arguments.length ; i++ )
       resultado *= arguments[i];
-   return resultado;
+      return resultado;
+   }
 }
 
 function cuentoElementos(array) {
@@ -135,9 +140,9 @@ function empiezaConNueve(num) {
    // Esta función recibe por parámetro un número.
    // Debe retornar true si el entero inicia con 9 y false en otro caso.
    // Tu código:
-   let numAString = num.toString;
-   let digitos = numAString.split('')
-   if(digitos[0]===9)
+   let numAString = num.toString();
+   let digitos = numAString.split('');
+   if(digitos[0] == 9)
       return true;
    else 
       return false;
@@ -222,6 +227,7 @@ function breakStatement(num) {
    // la ejecución y retornar el string: "Se interrumpió la ejecución".
    // [PISTA]: utiliza el statement 'break'.
    // Tu código:
+   
    let contador = 0;
    let nuevoNum = num;
    let array = [];
@@ -238,7 +244,7 @@ function breakStatement(num) {
    if(nuevoNum == contador)
       return 'Se interrumpió la ejecución';
    else
-      return array;
+      return array; 
 }
 
 function continueStatement(num) {
@@ -248,17 +254,21 @@ function continueStatement(num) {
    // se continua con la siguiente iteración.
    // [PISTA]: utiliza el statement 'continue'.
    // Tu código:
-   let contador = 0 ;
+  let contador = 0 ;
    let nuevoNum = num;
    let array = [];
    while(contador<10)
       {
          if(contador===5)
+         {
+            contador++;
             continue;
+         }
          nuevoNum += 2;
          array.push(nuevoNum);
          contador++;
       }
+   return array;
 }
 
 /*⚠️ NO MODIFIQUES NADA DEBAJO DE ESTO ⚠️*/
