@@ -55,7 +55,7 @@ function saludo(idioma) {
    return 'Guten Tag!';
    else if (idioma == 'mandarin')
    return 'Ni Hao!';
-   else if (idioma = 'ingles')
+   else if (idioma == 'ingles')
    return 'Hello!';
    else
    return 'Hola!';
@@ -124,12 +124,12 @@ function fizzBuzz(num) {
    // Si "num" es divisible entre 3 y 5 (ambos), retorna "fizzbuzz".
    // De lo contrario, retorna false.
    // Tu código:
-   if(num % 3 === 0)
-   return 'fizz';
+   if(num % 5 === 0 && num % 3 === 0)
+   return 'fizzbuzz';
    else if(num % 5 === 0)
    return 'buzz';
-   else if(num % 5 === 0 && num % 3 === 0)
-   return 'fizzbuzz';
+   else if(num % 3 === 0)
+   return 'fizz';
    else 
    return false;
 }
@@ -142,7 +142,7 @@ function operadoresLogicos(num1, num2, num3) {
    // Si todos los argumentos son cero, retornar ---> "Error".
    // Si no se cumple ninguna de las condiciones anteriores, retornar false.
    // Tu código:
-   if(num1 > num2 && num1 > num3 || num1 > 0)
+   if(num1 > num2 && num1 > num3 && num1 > 0)
    return 'Numero 1 es mayor y positivo'
    else if(num1 < 0 || num2 < 0 || num3 <0)
    return 'Hay negativos'
@@ -152,7 +152,7 @@ function operadoresLogicos(num1, num2, num3) {
       return num3;
    }
    else if(num1 === 0 && num2 === 0 && num3 === 0)
-   return 'error';
+   return 'Error';
    else
    return false;
 }
@@ -166,8 +166,8 @@ function esPrimo(num) {
    // Tu código:
    if(num < 2)
    return false;
-   if(num === 3 || num === 2)
-   return true;
+   if(num % 3 === 0 || num % 2 === 0)
+    return false;
    for(i=5 ; i * i <= num ; i+=6) //El limite es la raíz cuadrada del numero
    {
       if(num % i === 0 || num % (i+2) === 0)
@@ -202,10 +202,10 @@ function doWhile(num) {
    // Utilizar el bucle Do-While.
    // Tu código:
    var contador = 0;
-   {
-      num +=5;
-      contador+=1;
-   } doWhile(contador < 8)
+   do {
+      num += 5;
+      contador++;
+   } while(contador < 8)
    return num;
 }
 
